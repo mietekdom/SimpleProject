@@ -11,6 +11,16 @@ namespace SimpleProject01
 
         private DateTime dateOfBirth;
 
+        //private string contacNumber;
+
+        //public string ContactNumber
+        //{
+        //    get { return contacNumber; }
+        //    set { contacNumber = value;  }
+        //}
+
+        public string ContactNumber { get; set;}
+
         public Person(string firstName, string lastName)
         {
             Console.WriteLine("Constructor 1");
