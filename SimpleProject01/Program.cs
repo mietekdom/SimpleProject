@@ -6,6 +6,8 @@ namespace SimpleProject01
 {
     class Program
     {
+
+
         static void DisplayElements(List<int> list)
         {
             Console.WriteLine("** List **");
@@ -19,11 +21,12 @@ namespace SimpleProject01
         static void Main(string[] args)
         {
             int[] numbers = { 3, 5, 6, 7, 8, 9, 0, 3 };
-
+  
             foreach (int i in numbers)
             {
                 List<int> intList = new List<int>();
                 intList.Add(i);
+                Console.WriteLine(i);
             }
             //DisplayElements(intList);
 
