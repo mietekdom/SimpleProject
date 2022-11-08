@@ -18,28 +18,40 @@ namespace SimpleProject01
 
         static void Main(string[] args)
         {
-            List<int> intList = new List<int>();
-            intList.Add(1);
-            intList.Add(1);
-            intList.Add(7);
-            intList.Add(4);
-            intList.Add(2);
+            int[] numbers = { 3, 5, 6, 7, 8, 9, 0, 3 };
 
-            DisplayElements(intList);
+            foreach (int i in numbers)
+            {
+                List<int> intList = new List<int>();
+                intList.Add(i);
+            }
+            //DisplayElements(intList);
 
-            Console.WriteLine("New element");
 
-            string inputValue = Console.ReadLine();
-            int inputValueInt = int.Parse(inputValue);
+            //List<int> intList = new List<int>();
+            //intList.Add(1);
+            //intList.Add(1);
+            //intList.Add(7);
+            //intList.Add(4);
+            //intList.Add(2);
+            //intList.Add(2);
+            //intList.Add(2);
 
-            intList.Add(inputValueInt);
+            //DisplayElements(intList);
 
-            DisplayElements(intList);
+            //Console.WriteLine("New element");
 
-            //intList.RemoveRange(2, 3);
+            //string inputValue = Console.ReadLine();
+            //int inputValueInt = int.Parse(inputValue);
 
-            intList.Sort();
-            DisplayElements(intList);
+            //intList.Add(inputValueInt);
+
+            //DisplayElements(intList);
+
+            ////intList.RemoveRange(2, 3);
+
+            //intList.Sort();
+            //DisplayElements(intList);
 
             //Person bill = new Person("Bill", "Wick");
             //bill.SetDateOfBirth(new DateTime(1990, 1, 2));
