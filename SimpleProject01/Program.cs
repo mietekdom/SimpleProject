@@ -8,17 +8,53 @@ namespace SimpleProject01
     {
         static List<Person> GetEmployees()
         {
-            List<Person> employees = new List<Person>();
-            new Person(new DateTime(1990, 1, 13), "Bill", "The Kid");
-            new Person(new DateTime(1987, 9, 31), "John", "Kowalsky");
-            new Person(new DateTime(1998, 2, 23), "Mitson", "Rebec");
-            new Person(new DateTime(1982, 12, 6), "William", "Dom");
-            new Person(new DateTime(1994, 7, 8), "Samanta", "Black");
-            new Person(new DateTime(1980, 5, 14), "Ed", "Smyth");
-            new Person(new DateTime(1998, 4, 10), "Bob", "Wick");
+            List<Person> employees = new List<Person>()
+            {
+                new Person(new DateTime(1990, 1, 13), "Bill", "The Kid"),
+                new Person(new DateTime(1987, 9, 30), "John", "Kowalsky"),
+                new Person(new DateTime(2012, 2, 23), "Mitson", "Rebec"),
+                new Person(new DateTime(1982, 12, 6), "William", "Dom"),
+                new Person(new DateTime(1994, 7, 8), "Samanta", "Black"),
+                new Person(new DateTime(2001, 5, 14), "Ed", "Smyth"),
+                new Person(new DateTime(2008, 4, 10), "Bob", "Wick")
+            };
 
             return employees;
         }
+
+        static void Main(string[] args)
+        {
+            List<Person> employees = GetEmployees();
+            List<Person> youngEmployees = new List<Person>();
+            foreach(var employee in employees)
+            {
+                if (employee.GetDateOfBirth() > new DateTime(2000, 1, 1))
+                {
+                    youngEmployees.Add(employee);
+                }
+            }
+            Console.WriteLine($"Young employees count: {youngEmployees.Count}");
+
+            Person bob = null;
+            foreach (Person youngEmployee in youngEmployees)
+            {
+                if (youngEmployee.FirstName == "Bob")
+                {
+                    bob = youngEmployee;
+                    break;
+                }
+            }
+            if (bob != null)
+            {
+                bob.SayHi();
+            }
+            else
+            {
+                Console.WriteLine("Bob not found");
+            }
+        }
+
+
 
 
         //static void DisplayElements(List<int> list)
