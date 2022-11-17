@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using ClassLibrary;
+using System.Linq;
 
 namespace SimpleProject01
 {
@@ -25,25 +26,39 @@ namespace SimpleProject01
         static void Main(string[] args)
         {
             List<Person> employees = GetEmployees();
-            List<Person> youngEmployees = new List<Person>();
-            foreach(var employee in employees)
+
+            bool EmployeeIsYoung(Person employee)
             {
-                if (employee.GetDateOfBirth() > new DateTime(2000, 1, 1))
-                {
-                    youngEmployees.Add(employee);
-                }
+                return employee.GetDateOfBirth() > new DateTime(2000, 1, 1);
             }
+            List<Person> youngEmployees = employees.Where(EmployeeIsYoung).ToList();
+
+
+
+            //foreach(var employee in employees)
+            //{
+            //    if (employee.GetDateOfBirth() > new DateTime(2000, 1, 1))
+            //    {
+            //        youngEmployees.Add(employee);
+            //    }
+            //}
             Console.WriteLine($"Young employees count: {youngEmployees.Count}");
 
-            Person bob = null;
-            foreach (Person youngEmployee in youngEmployees)
+            bool EmployIsBob(Person employee)
             {
-                if (youngEmployee.FirstName == "Bob")
-                {
-                    bob = youngEmployee;
-                    break;
-                }
+                return employee.FirstName == "Bob";
             }
+
+            Person bob = youngEmployees.FirstOrDefault(EmployIsBob);
+            //Person bob = null;
+            //foreach (Person youngEmployee in youngEmployees)
+            //{
+            //    if (youngEmployee.FirstName == "Bob")
+            //    {
+            //        bob = youngEmployee;
+            //        break;
+            //    }
+            //}
             if (bob != null)
             {
                 bob.SayHi();
@@ -52,6 +67,9 @@ namespace SimpleProject01
             {
                 Console.WriteLine("Bob not found");
             }
+
+            ////LINQ
+            
         }
 
 
