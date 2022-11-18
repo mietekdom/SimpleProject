@@ -18,6 +18,7 @@ namespace SimpleProject01
                 new Person(new DateTime(1994, 7, 8), "Samanta", "Black"),
                 new Person(new DateTime(2001, 5, 14), "Ed", "Smyth"),
                 new Person(new DateTime(2008, 4, 10), "Bob", "Wick")    
+
             };
             return employees;
         }
