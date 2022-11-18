@@ -22,43 +22,16 @@ namespace SimpleProject01
 
             return employees;
         }
-
         static void Main(string[] args)
         {
             List<Person> employees = GetEmployees();
 
-            bool EmployeeIsYoung(Person employee)
-            {
-                return employee.GetDateOfBirth() > new DateTime(2000, 1, 1);
-            }
-            List<Person> youngEmployees = employees.Where(EmployeeIsYoung).ToList();
+            List<Person> youngEmployees = employees.Where(e => e.GetDateOfBirth() > new DateTime(1995, 1, 1)).ToList();
 
-
-
-            //foreach(var employee in employees)
-            //{
-            //    if (employee.GetDateOfBirth() > new DateTime(2000, 1, 1))
-            //    {
-            //        youngEmployees.Add(employee);
-            //    }
-            //}
             Console.WriteLine($"Young employees count: {youngEmployees.Count}");
 
-            bool EmployIsBob(Person employee)
-            {
-                return employee.FirstName == "Bob";
-            }
+            Person bob = youngEmployees.FirstOrDefault(e => e.FirstName == "Bob");
 
-            Person bob = youngEmployees.FirstOrDefault(EmployIsBob);
-            //Person bob = null;
-            //foreach (Person youngEmployee in youngEmployees)
-            //{
-            //    if (youngEmployee.FirstName == "Bob")
-            //    {
-            //        bob = youngEmployee;
-            //        break;
-            //    }
-            //}
             if (bob != null)
             {
                 bob.SayHi();
@@ -67,8 +40,6 @@ namespace SimpleProject01
             {
                 Console.WriteLine("Bob not found");
             }
-
-            ////LINQ
             
         }
 
