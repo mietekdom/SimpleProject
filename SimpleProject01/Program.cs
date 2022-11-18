@@ -40,7 +40,7 @@ namespace SimpleProject01
             {
                 Console.WriteLine("Bob not found");
             }
-            
+            var item;
         }
 
 
